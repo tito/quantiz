@@ -3,9 +3,58 @@
 <QuantizPlayground>:
 	canvas:
 		Color:
-			hsv: self.hue, .5, 1
+			hsv: self.hue, .5, .5 + self.color_pulse * 0.05
 		Rectangle:
 			source: 'background.png'
 			pos: self.pos
 			size: self.size
+
+#
+# elements design
+#
+<QuantizGenerator>:
+	canvas:
+		Color:
+			rgba: 1, 1, 1, self.rhythm[0] * (.8 if self.beat == 0 else .2)
+		Rectangle:
+			source: 'circle-q0.png'
+			pos: self.x - self.radius, self.y - self.radius
+			size: self.radius * 2, self.radius * 2
+
+		Color:
+			rgba: 1, 1, 1, self.rhythm[1] * (.8 if self.beat == 1 else .2)
+		Rectangle:
+			source: 'circle-q1.png'
+			pos: self.x - self.radius, self.y - self.radius
+			size: self.radius * 2, self.radius * 2
+
+		Color:
+			rgba: 1, 1, 1, self.rhythm[2] * (.8 if self.beat == 2 else .2)
+		Rectangle:
+			source: 'circle-q2.png'
+			pos: self.x - self.radius, self.y - self.radius
+			size: self.radius * 2, self.radius * 2
+
+		Color:
+			rgba: 1, 1, 1, self.rhythm[3] * (.8 if self.beat == 3 else .2)
+		Rectangle:
+			source: 'circle-q3.png'
+			pos: self.x - self.radius, self.y - self.radius
+			size: self.radius * 2, self.radius * 2
+
+		Color:
+			hsv: self.hue, .8, 1
+		Rectangle:
+			source: 'circle.png'
+			pos: self.x - self.radius, self.y - self.radius
+			size: self.radius * 2, self.radius * 2
+
+<QuantizBall>:
+	canvas:
+		Color:
+			hsv: self.hue, .8, 1
+		Rectangle:
+			source: 'ball.png'
+			pos: self.x - self.radius, self.y - self.radius
+			size: self.radius * 2, self.radius * 2
 

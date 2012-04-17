@@ -16,7 +16,13 @@ class QuantizApp(App):
         self.root = self.create_playground()
 
     def create_playground(self):
-        return QuantizPlayground()
+        playground = QuantizPlayground()
+
+        # create some elements
+        from quantiz.elements.generator import QuantizGenerator
+        playground.add_widget(QuantizGenerator(center=(100, 100)))
+
+        return playground
 
     def switch_to(self, screen):
         win = self.root.parent
